@@ -77,6 +77,9 @@ static void early_uart_send(unsigned int c)
 void uart_send_string(char *str)
 {
         /* LAB 1 TODO 3 BEGIN */
-
+    early_uart_init();//初始化串口
+    while (*str) {//每次发送时，先将字符转换
+        early_uart_send((unsigned int)*str++);
+    }
         /* LAB 1 TODO 3 END */
 }
